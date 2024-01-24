@@ -4,115 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Add Products</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
 
-        fieldset {
-            width: 50%;
-            margin: 50px auto;
-            border: 2px solid #333;
-            padding: 20px;
-            border-radius: 10px;
-            background-color: #fff;
-        }
-
-        table {
-            width: 100%;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        input {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 10px;
-            box-sizing: border-box;
-        }
-
-        button {
-            padding: 10px;
-            background-color: #8cb807;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #45a049;
-        }
-
-        div {
-            color: red;
-            margin-top: 5px;
-        }
-    </style>
+    <title>Document</title>
 </head>
 <body>
-    <fieldset>
-        <legend>Add Products:</legend>
-        <form action="{{ route('products.store') }}" method="POST">
+    <style>
+        body {
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        
+    </style>
+   
+    <h1>Ajouter stagiaire</h1>
+  
+    <div class="class conatiner ">
+        <form  method="POST" action="{{route('stagiaire.store')}}" class="form-label" enctype="multipart/form-data">
             @csrf
-            <table style="height: 200px">
-                <tr>
-                    <td><label>Libelle:</label></td>
-                    <td><input type="text" name="libelle"></td>
-                    @error("libelle")
-                    <div>
-                        {{$message}}
-                    </div>
-                    @enderror
-                </tr>
-                <tr>
-                    <td><label>Marque:</label></td>
-                    <td><input type="text" name="marque"></td>
-                </tr>
-                @error("marque")
-                <div>
-                    {{$message}}
-                </div>
-                @enderror
-                <tr>
-                    <td><label>prix:</label></td>
-                    <td><input type="number" name="prix"></td>
-                </tr>
-                @error("prix")
-                <div>
-                    {{$message}}
-                </div>
-                @enderror
-                <tr>
-                    <td><label>Stock:</label></td>
-                    <td><input type="number" name="stock"></td>
-                </tr>
-                @error("stock")
-                <div>
-                    {{$message}}
-                </div>
-                @enderror
-                <tr>
-                    <td><label>image:</label></td>
-                    <td><input type="file" name="image"></td>
-                </tr>
-                <tr>
-                    <td><button type="submit">Ajouter</button></td>
-                </tr>
-                @error("image")
-                <div>
-                    {{$message}}
-                </div>
-                @enderror
-            </table>
-        </form>
-    </fieldset>
+          <label for="" cl
+          ass="form-label">Name:</label>
+          <input type="text" name="name" id="" class="form-control">
+          @error('name')
+          <div class="text-danger"> {{$message}}</div>
+             
+          @enderror
+          <label for="" class="form-label">Email:</label>
+          <input type="email" name="email" id="" class="form-control" value="{{old("email")}}">
+          @error('email')
+          <div class="text-danger"> {{$message}}</div>
+       @enderror
+          <label for="" class="form-label">Password:</label>
+          <input type="password" name="password" id="" class="form-control" value="{{old("password")}}">
+          @error('password')
+          <div class="text-danger"> {{$message}}</div>
+       @enderror
+       <label for="" class="form-label">Confirmer password:</label>
+          <input type="password" name="password_confirmation" id="" class="form-control" value="{{old("password_confirmation")}}">
+          @error('password_confirmation')
+          <div class="text-danger"> {{$message}}</div>
+       @enderror
+          <label for="" class="form-label">Bio</label>
+          <textarea  name="bio" id="" class="form-control" >{{old("bio")}}</textarea>
+          @error('bio')
+          <div class="text-danger"> {{$message}}</div>
+       @enderror
+       <label for="" class="form-label">Image</label>
+       <input type="file" name="image" id="" class="form-control">
+           <div class="class d-grid">
+               <input type="submit" value="Ajouter" class="btn btn-primary btn-block">
+           </div>
+          
+       </form> 
+    
+    </div>                                                          
+  
+ 
+
 </body>
 </html>

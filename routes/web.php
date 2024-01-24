@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\StagiaireController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,11 +12,8 @@ use App\Http\Controllers\ProductsController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::resource('products', ProductsController::class);
-Route::get('/products/{id}', [ProductController::class, 'show']);
-Route::get("/create",[ProductsController::class,"create"]);
-Route::get("/modify1",[ProductsController::class,"update"]);
-Route::get("{libelle}",[ProductsController::class,"index"]);
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[StagiaireController::class,"index"]);
+Route::get('/stagiaire/{id}', [StagiaireController::class, 'show'])->name('stagiaire.show');
+
+
+Route::resource('/stagiaire',StagiaireController::class);
